@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./ChatSection.css";
 import logo from "./logo.svg";
+import SendChatIcon from "./send-icon.svg";
 import ContentPasteIcon from "@mui/icons-material/ContentPaste";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import EditIcon from "@mui/icons-material/Edit";
-import SendIcon from "@mui/icons-material/Send";
+// import SendIcon from "@mui/icons-material/Send";
 import DoneIcon from "@mui/icons-material/Done";
+
 import { copyToClipboard } from "./util";
 const dummyImg =
   "https://chat.openai.com/_next/image?url=https%3A%2F%2Flh3.googleusercontent.com%2Fa%2FAGNmyxZ7sVfFu7RoMdNKgWIhLlnbt4IxqRrIaFzAFLba%3Ds96-c&w=48&q=75";
@@ -109,9 +111,11 @@ function ChatSection() {
           </div>
         </div>
       ))}
+      <div style={{ height: "45px" }}>&nbsp;</div>
       <div className="d-flex align-items-center justify-content-between text-box">
         <input placeholder="Send Message." />
-        <SendIcon />
+        <img alt="send" src={SendChatIcon} />
+        {/* <SendChatIcon /> */}
       </div>
     </div>
   );
