@@ -63,7 +63,13 @@ const chatDataMain = [
 
 function ChatSection() {
   const [chatData, setChatData] = useState(chatDataMain);
+  const [messageTyped, setMessageTyped] = useState("");
 
+  const sendMessage = (e) => {
+    if ((e.type == "keydown" && e.key == "Enter") || e.type == "click") {
+      setMessageTyped("");
+    }
+  };
   return (
     <div className="d-flex flex-column align-items-center w-100">
       {chatData.map((data) => (
@@ -113,8 +119,13 @@ function ChatSection() {
       ))}
       <div style={{ height: "45px" }}>&nbsp;</div>
       <div className="d-flex align-items-center justify-content-between text-box">
-        <input placeholder="Send Message." />
-        <img alt="send" src={SendChatIcon} />
+        <input
+          placeholder="Send Message."
+          value={messageTyped}
+          onChange={(e) => setMessageTyped(e.target.value)}
+          onKeyDown={sendMessage}
+        />
+        <img alt="send" src={SendChatIcon} onClick={sendMessage} />
         {/* <SendChatIcon /> */}
       </div>
     </div>
