@@ -1,0 +1,20 @@
+.sidebar-container {
+  background-color: #202123;
+  width: 260px;
+  height: 100vh;
+  padding: 8px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: .875rem;
+  line-height: 1.25rem;
+}
+
+a:hover {
+  color: white;
+}

@@ -71,7 +71,7 @@ function ChatSection() {
     }
   };
   return (
-    <div className="d-flex flex-column align-items-center w-100">
+    <div className="chat-section-container d-flex flex-column align-items-center w-100">
       {chatData.map((data) => (
         <div
           className={`d-flex p-4 message-box ${!data.isUser && "bot"}`}
