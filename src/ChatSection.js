@@ -66,7 +66,7 @@ function ChatSection() {
   const [messageTyped, setMessageTyped] = useState("");
 
   const sendMessage = (e) => {
-    if ((e.type == "keydown" && e.key == "Enter") || e.type == "click") {
+    if ((e.type === "keydown" && e.key === "Enter") || e.type === "click") {
       setMessageTyped("");
     }
   };
