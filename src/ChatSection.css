@@ -1,6 +1,6 @@
 .chat-section-container {
-    max-height: 100vh;
-    overflow: auto;
+  max-height: 100vh;
+  overflow: auto;
 }
 
 .message-box {
@@ -14,6 +14,7 @@
 .logo-section img {
   width: 25px;
   height: 25px;
+  border-radius: 3px;
 }
 
 .chat-message {
@@ -25,6 +26,12 @@
     Ubuntu, Cantarell, Noto Sans, sans-serif, Helvetica Neue, Arial,
     Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   font-variation-settings: normal;
+}
+
+@media (max-width: 900px) {
+  .chat-message {
+    width: 100%;
+  }
 }
 
 .edit-icon {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ChatSection.css";
 import logo from "./logo.svg";
 import SendChatIcon from "./send-icon.svg";
@@ -8,6 +8,7 @@ import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import EditIcon from "@mui/icons-material/Edit";
 // import SendIcon from "@mui/icons-material/Send";
 import DoneIcon from "@mui/icons-material/Done";
+import { Configuration, OpenAIApi } from "openai";
 
 import { copyToClipboard } from "./util";
 const dummyImg =
@@ -60,14 +61,33 @@ const chatDataMain = [
     isUser: false,
   },
 ];
+const API_KEY = "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";
+let openAi;
 
 function ChatSection() {
   const [chatData, setChatData] = useState(chatDataMain);
   const [messageTyped, setMessageTyped] = useState("");
 
-  const sendMessage = (e) => {
+  useEffect(() => {
+    openAi = new OpenAIApi(
+      new Configuration({
+        apiKey: API_KEY,
+      })
+    );
+  }, []);
+
+  const sendMessage = async (e) => {
     if ((e.type === "keydown" && e.key === "Enter") || e.type === "click") {
-      setMessageTyped("");
+      try {
+        const response = await openAi.createChatCompletion({
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: messageTyped }],
+        });
+        console.log(response.data.choices[0].message.content);
+        setMessageTyped("");
+      } catch (e) {
+        console.log(e.response.data);
+      }
     }
   };
   return (

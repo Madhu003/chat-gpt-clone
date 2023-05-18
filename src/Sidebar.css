@@ -18,3 +18,7 @@ a {
 a:hover {
   color: white;
 }
+
+.menu-item:hover {
+  background-color: #343541;
+}

@@ -14,7 +14,7 @@ function Sidebar() {
       </a>
 
       {meniItems.map((item) => (
-        <a href={item.title}>{item.title}</a>
+        <a className="menu-item" href={item.title}>{item.title}</a>
       ))}
     </div>
   );
